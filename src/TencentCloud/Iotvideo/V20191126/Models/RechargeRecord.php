@@ -18,59 +18,59 @@ namespace TencentCloud\Iotvideo\V20191126\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 版本发布的描述信息，需要国际化，可以为空
+ * 充值记录列表
  *
- * @method string getEn() 获取英文，长度不超过300个字符
+ * @method integer getWaterId() 获取流水记录号。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setEn(string $En) 设置英文，长度不超过300个字符
+ * @method void setWaterId(integer $WaterId) 设置流水记录号。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getCn() 获取中文简体，长度不超过300个字符
+ * @method integer getBalanceBeforeRecharge() 获取充值前的余额，单位0.01元。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setCn(string $Cn) 设置中文简体，长度不超过300个字符
+ * @method void setBalanceBeforeRecharge(integer $BalanceBeforeRecharge) 设置充值前的余额，单位0.01元。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getTc() 获取中文繁体(Traditional Chinese)，长度不超过300个字符
+ * @method integer getMoney() 获取充值金额，单位0.01元。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTc(string $Tc) 设置中文繁体(Traditional Chinese)，长度不超过300个字符
+ * @method void setMoney(integer $Money) 设置充值金额，单位0.01元。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getDefault() 获取默认语言，最多不超过300个字符
+ * @method integer getOperateTime() 获取充值时间, UTC值。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDefault(string $Default) 设置默认语言，最多不超过300个字符
+ * @method void setOperateTime(integer $OperateTime) 设置充值时间, UTC值。
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class Contents extends AbstractModel
+class RechargeRecord extends AbstractModel
 {
     /**
-     * @var string 英文，长度不超过300个字符
+     * @var integer 流水记录号。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $En;
+    public $WaterId;
 
     /**
-     * @var string 中文简体，长度不超过300个字符
+     * @var integer 充值前的余额，单位0.01元。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Cn;
+    public $BalanceBeforeRecharge;
 
     /**
-     * @var string 中文繁体(Traditional Chinese)，长度不超过300个字符
+     * @var integer 充值金额，单位0.01元。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Tc;
+    public $Money;
 
     /**
-     * @var string 默认语言，最多不超过300个字符
+     * @var integer 充值时间, UTC值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Default;
+    public $OperateTime;
 
     /**
-     * @param string $En 英文，长度不超过300个字符
+     * @param integer $WaterId 流水记录号。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Cn 中文简体，长度不超过300个字符
+     * @param integer $BalanceBeforeRecharge 充值前的余额，单位0.01元。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Tc 中文繁体(Traditional Chinese)，长度不超过300个字符
+     * @param integer $Money 充值金额，单位0.01元。
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Default 默认语言，最多不超过300个字符
+     * @param integer $OperateTime 充值时间, UTC值。
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -86,20 +86,20 @@ class Contents extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("En",$param) and $param["En"] !== null) {
-            $this->En = $param["En"];
+        if (array_key_exists("WaterId",$param) and $param["WaterId"] !== null) {
+            $this->WaterId = $param["WaterId"];
         }
 
-        if (array_key_exists("Cn",$param) and $param["Cn"] !== null) {
-            $this->Cn = $param["Cn"];
+        if (array_key_exists("BalanceBeforeRecharge",$param) and $param["BalanceBeforeRecharge"] !== null) {
+            $this->BalanceBeforeRecharge = $param["BalanceBeforeRecharge"];
         }
 
-        if (array_key_exists("Tc",$param) and $param["Tc"] !== null) {
-            $this->Tc = $param["Tc"];
+        if (array_key_exists("Money",$param) and $param["Money"] !== null) {
+            $this->Money = $param["Money"];
         }
 
-        if (array_key_exists("Default",$param) and $param["Default"] !== null) {
-            $this->Default = $param["Default"];
+        if (array_key_exists("OperateTime",$param) and $param["OperateTime"] !== null) {
+            $this->OperateTime = $param["OperateTime"];
         }
     }
 }

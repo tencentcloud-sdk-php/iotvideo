@@ -39,7 +39,7 @@ use TencentCloud\Iotvideo\V20191126\Models as Models;
  * @method Models\CreateIotModelResponse CreateIotModel(Models\CreateIotModelRequest $req) 本接口（CreateIotModel）用于定义的物模型提交。
 该接口实现了物模型草稿箱的功能，保存用户最后一次编辑的物模型数据。
  * @method Models\CreateProductResponse CreateProduct(Models\CreateProductRequest $req) 本接口（CreateProduct）用于创建一个新的物联网智能视频产品。
- * @method Models\CreateStorageResponse CreateStorage(Models\CreateStorageRequest $req) 本接口（CreateStorage）用于购买云存套餐。
+ * @method Models\CreateStorageResponse CreateStorage(Models\CreateStorageRequest $req) 该接口已经停止维护，请勿使用
  * @method Models\CreateStorageServiceResponse CreateStorageService(Models\CreateStorageServiceRequest $req) 购买云存服务
  * @method Models\CreateTraceIdsResponse CreateTraceIds(Models\CreateTraceIdsRequest $req) 本接口（CreateTraceIds）用于将设备加到日志跟踪白名单。
  * @method Models\CreateUploadPathResponse CreateUploadPath(Models\CreateUploadPathRequest $req) 本接口（CreateUploadPath）用于获取固件上传路径。
@@ -53,6 +53,7 @@ use TencentCloud\Iotvideo\V20191126\Models as Models;
  * @method Models\DeleteProductResponse DeleteProduct(Models\DeleteProductRequest $req) 本接口（DeleteProduct）用于删除一个物联网智能视频产品。
  * @method Models\DeleteTraceIdsResponse DeleteTraceIds(Models\DeleteTraceIdsRequest $req) 本接口（DeleteTraceIds）用于将设备从日志跟踪白名单中删除，该接口可批量操作，最多支持同时操作100台设备。
  * @method Models\DeliverStorageServiceResponse DeliverStorageService(Models\DeliverStorageServiceRequest $req) 将已购买的云存服务转移到另一设备
+ * @method Models\DescribeAccountBalanceResponse DescribeAccountBalance(Models\DescribeAccountBalanceRequest $req) 客户可通过本接口获取账户余额信息, 默认接口请求频率限制：1次/秒
  * @method Models\DescribeBindDevResponse DescribeBindDev(Models\DescribeBindDevRequest $req) 本接口（DescribeBindDev）用于查询终端用户绑定的设备列表。
  * @method Models\DescribeBindUsrResponse DescribeBindUsr(Models\DescribeBindUsrRequest $req) 本接口（DescribeBindUsr）用于查询设备被分享的所有用户列表。
  * @method Models\DescribeDeviceResponse DescribeDevice(Models\DescribeDeviceRequest $req) 本接口（DescribeDevice）获取设备信息。
@@ -70,6 +71,7 @@ use TencentCloud\Iotvideo\V20191126\Models as Models;
  * @method Models\DescribeProductResponse DescribeProduct(Models\DescribeProductRequest $req) 本接口（DescribeProduct）用于获取单个产品的详细信息。
  * @method Models\DescribeProductsResponse DescribeProducts(Models\DescribeProductsRequest $req) 本接口（DescribeProducts）用于列出用户账号下的物联网智能视频产品列表。
  * @method Models\DescribePubVersionsResponse DescribePubVersions(Models\DescribePubVersionsRequest $req) 本接口（DescribePubVersions）用于获取某一产品发布过的全部固件版本。
+ * @method Models\DescribeRechargeRecordsResponse DescribeRechargeRecords(Models\DescribeRechargeRecordsRequest $req) 客户可通过本接口获取充值记录信息, 一次最多返回50条记录。
  * @method Models\DescribeRegistrationStatusResponse DescribeRegistrationStatus(Models\DescribeRegistrationStatusRequest $req) 本接口（DescribeRegistrationStatus）用于查询终端用户的注册状态。
  * @method Models\DescribeRunLogResponse DescribeRunLog(Models\DescribeRunLogRequest $req) 本接口（DescribeRunLog）用于获取设备运行日志。
  * @method Models\DescribeStorageServiceResponse DescribeStorageService(Models\DescribeStorageServiceRequest $req) 查询云存服务
@@ -94,7 +96,11 @@ ProWritable.Pos.setVal.x;
 物模型写入数据时,不需要传入时标信息,平台以当前时标作为数据的时标更新物模型中的时标信息。
  * @method Models\ModifyProductResponse ModifyProduct(Models\ModifyProductRequest $req) 本接口（ModifyProduct）用于编辑物联网智能视频产品的相关信息。
  * @method Models\ModifyVerContentResponse ModifyVerContent(Models\ModifyVerContentRequest $req) 编辑版本描述信息
- * @method Models\RefundStorageServiceResponse RefundStorageService(Models\RefundStorageServiceRequest $req) 退订已购买的云存服务
+ * @method Models\RefundStorageServiceResponse RefundStorageService(Models\RefundStorageServiceRequest $req) 本接口（RefundStorageService）用于退订已购买的云存服务。
+退订时，云存服务对应订单的处理方式 : 
+1. 未开始的订单自动回到已付费订单池
+2. 已开始的订单自动失效
+3. 购买云存接口,优先从已付费订单池中分配订单
  * @method Models\RunDeviceResponse RunDevice(Models\RunDeviceRequest $req) 本接口（RunDevice）用于启用设备，可进行批量操作，每次操作最多100台设备。
  * @method Models\RunDeviceStreamResponse RunDeviceStream(Models\RunDeviceStreamRequest $req) 本接口（RunDeviceStream）用于开启设备推流，可进行批量操作，每次操作最多100台设备。
  * @method Models\RunIotModelResponse RunIotModel(Models\RunIotModelRequest $req) 本接口（RunIotModel）用于对定义的物模型进行发布。
