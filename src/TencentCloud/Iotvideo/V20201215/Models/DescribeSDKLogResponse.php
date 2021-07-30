@@ -18,19 +18,33 @@ namespace TencentCloud\Iotvideo\V20201215\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * GetAllFirmwareVersion返回参数结构体
+ * DescribeSDKLog返回参数结构体
  *
- * @method array getVersion() 获取固件可用版本列表
- * @method void setVersion(array $Version) 设置固件可用版本列表
+ * @method string getContext() 获取日志检索上下文
+ * @method void setContext(string $Context) 设置日志检索上下文
+ * @method boolean getListover() 获取是否还有日志，如有仍有日志，下次查询的请求带上当前请求返回的Context
+ * @method void setListover(boolean $Listover) 设置是否还有日志，如有仍有日志，下次查询的请求带上当前请求返回的Context
+ * @method array getResults() 获取日志列表
+ * @method void setResults(array $Results) 设置日志列表
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class GetAllFirmwareVersionResponse extends AbstractModel
+class DescribeSDKLogResponse extends AbstractModel
 {
     /**
-     * @var array 固件可用版本列表
+     * @var string 日志检索上下文
      */
-    public $Version;
+    public $Context;
+
+    /**
+     * @var boolean 是否还有日志，如有仍有日志，下次查询的请求带上当前请求返回的Context
+     */
+    public $Listover;
+
+    /**
+     * @var array 日志列表
+     */
+    public $Results;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +52,9 @@ class GetAllFirmwareVersionResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $Version 固件可用版本列表
+     * @param string $Context 日志检索上下文
+     * @param boolean $Listover 是否还有日志，如有仍有日志，下次查询的请求带上当前请求返回的Context
+     * @param array $Results 日志列表
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +70,21 @@ class GetAllFirmwareVersionResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Version",$param) and $param["Version"] !== null) {
-            $this->Version = $param["Version"];
+        if (array_key_exists("Context",$param) and $param["Context"] !== null) {
+            $this->Context = $param["Context"];
+        }
+
+        if (array_key_exists("Listover",$param) and $param["Listover"] !== null) {
+            $this->Listover = $param["Listover"];
+        }
+
+        if (array_key_exists("Results",$param) and $param["Results"] !== null) {
+            $this->Results = [];
+            foreach ($param["Results"] as $key => $value){
+                $obj = new SDKLogItem();
+                $obj->deserialize($value);
+                array_push($this->Results, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

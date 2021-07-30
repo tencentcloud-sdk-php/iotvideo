@@ -18,28 +18,20 @@ namespace TencentCloud\Iotvideo\V20201215\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CheckForwardAuth请求参数结构体
+ * ModifyDataForwardStatus返回参数结构体
  *
- * @method string getSkey() 获取控制台Skey
- * @method void setSkey(string $Skey) 设置控制台Skey
- * @method integer getQueueType() 获取队列类型 0.CMQ  1.Ckafka
- * @method void setQueueType(integer $QueueType) 设置队列类型 0.CMQ  1.Ckafka
+ * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CheckForwardAuthRequest extends AbstractModel
+class ModifyDataForwardStatusResponse extends AbstractModel
 {
     /**
-     * @var string 控制台Skey
+     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
-    public $Skey;
+    public $RequestId;
 
     /**
-     * @var integer 队列类型 0.CMQ  1.Ckafka
-     */
-    public $QueueType;
-
-    /**
-     * @param string $Skey 控制台Skey
-     * @param integer $QueueType 队列类型 0.CMQ  1.Ckafka
+     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class CheckForwardAuthRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Skey",$param) and $param["Skey"] !== null) {
-            $this->Skey = $param["Skey"];
-        }
-
-        if (array_key_exists("QueueType",$param) and $param["QueueType"] !== null) {
-            $this->QueueType = $param["QueueType"];
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }

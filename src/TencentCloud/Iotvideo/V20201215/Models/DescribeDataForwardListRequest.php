@@ -18,28 +18,20 @@ namespace TencentCloud\Iotvideo\V20201215\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CheckForwardAuth请求参数结构体
+ * DescribeDataForwardList请求参数结构体
  *
- * @method string getSkey() 获取控制台Skey
- * @method void setSkey(string $Skey) 设置控制台Skey
- * @method integer getQueueType() 获取队列类型 0.CMQ  1.Ckafka
- * @method void setQueueType(integer $QueueType) 设置队列类型 0.CMQ  1.Ckafka
+ * @method string getProductIds() 获取产品ID列表
+ * @method void setProductIds(string $ProductIds) 设置产品ID列表
  */
-class CheckForwardAuthRequest extends AbstractModel
+class DescribeDataForwardListRequest extends AbstractModel
 {
     /**
-     * @var string 控制台Skey
+     * @var string 产品ID列表
      */
-    public $Skey;
+    public $ProductIds;
 
     /**
-     * @var integer 队列类型 0.CMQ  1.Ckafka
-     */
-    public $QueueType;
-
-    /**
-     * @param string $Skey 控制台Skey
-     * @param integer $QueueType 队列类型 0.CMQ  1.Ckafka
+     * @param string $ProductIds 产品ID列表
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class CheckForwardAuthRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Skey",$param) and $param["Skey"] !== null) {
-            $this->Skey = $param["Skey"];
-        }
-
-        if (array_key_exists("QueueType",$param) and $param["QueueType"] !== null) {
-            $this->QueueType = $param["QueueType"];
+        if (array_key_exists("ProductIds",$param) and $param["ProductIds"] !== null) {
+            $this->ProductIds = $param["ProductIds"];
         }
     }
 }

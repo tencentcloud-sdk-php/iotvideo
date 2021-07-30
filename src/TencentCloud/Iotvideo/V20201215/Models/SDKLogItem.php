@@ -18,21 +18,25 @@ namespace TencentCloud\Iotvideo\V20201215\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeCloudStorage请求参数结构体
+ * SDK日志项
  *
- * @method string getProductId() 获取产品ID
- * @method void setProductId(string $ProductId) 设置产品ID
+ * @method string getProductID() 获取产品ID
+ * @method void setProductID(string $ProductID) 设置产品ID
  * @method string getDeviceName() 获取设备名称
  * @method void setDeviceName(string $DeviceName) 设置设备名称
- * @method string getUserId() 获取云存用户ID
- * @method void setUserId(string $UserId) 设置云存用户ID
+ * @method string getLevel() 获取日志等级
+ * @method void setLevel(string $Level) 设置日志等级
+ * @method string getDateTime() 获取日志时间
+ * @method void setDateTime(string $DateTime) 设置日志时间
+ * @method string getContent() 获取日志内容
+ * @method void setContent(string $Content) 设置日志内容
  */
-class DescribeCloudStorageRequest extends AbstractModel
+class SDKLogItem extends AbstractModel
 {
     /**
      * @var string 产品ID
      */
-    public $ProductId;
+    public $ProductID;
 
     /**
      * @var string 设备名称
@@ -40,14 +44,26 @@ class DescribeCloudStorageRequest extends AbstractModel
     public $DeviceName;
 
     /**
-     * @var string 云存用户ID
+     * @var string 日志等级
      */
-    public $UserId;
+    public $Level;
 
     /**
-     * @param string $ProductId 产品ID
+     * @var string 日志时间
+     */
+    public $DateTime;
+
+    /**
+     * @var string 日志内容
+     */
+    public $Content;
+
+    /**
+     * @param string $ProductID 产品ID
      * @param string $DeviceName 设备名称
-     * @param string $UserId 云存用户ID
+     * @param string $Level 日志等级
+     * @param string $DateTime 日志时间
+     * @param string $Content 日志内容
      */
     function __construct()
     {
@@ -62,16 +78,24 @@ class DescribeCloudStorageRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ProductId",$param) and $param["ProductId"] !== null) {
-            $this->ProductId = $param["ProductId"];
+        if (array_key_exists("ProductID",$param) and $param["ProductID"] !== null) {
+            $this->ProductID = $param["ProductID"];
         }
 
         if (array_key_exists("DeviceName",$param) and $param["DeviceName"] !== null) {
             $this->DeviceName = $param["DeviceName"];
         }
 
-        if (array_key_exists("UserId",$param) and $param["UserId"] !== null) {
-            $this->UserId = $param["UserId"];
+        if (array_key_exists("Level",$param) and $param["Level"] !== null) {
+            $this->Level = $param["Level"];
+        }
+
+        if (array_key_exists("DateTime",$param) and $param["DateTime"] !== null) {
+            $this->DateTime = $param["DateTime"];
+        }
+
+        if (array_key_exists("Content",$param) and $param["Content"] !== null) {
+            $this->Content = $param["Content"];
         }
     }
 }

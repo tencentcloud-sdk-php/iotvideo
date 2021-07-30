@@ -18,17 +18,33 @@ namespace TencentCloud\Iotvideo\V20201215\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeCloudStorage请求参数结构体
+ * DescribeDeviceStatusLog请求参数结构体
  *
+ * @method integer getMinTime() 获取开始时间（毫秒）
+ * @method void setMinTime(integer $MinTime) 设置开始时间（毫秒）
+ * @method integer getMaxTime() 获取结束时间（毫秒）
+ * @method void setMaxTime(integer $MaxTime) 设置结束时间（毫秒）
  * @method string getProductId() 获取产品ID
  * @method void setProductId(string $ProductId) 设置产品ID
  * @method string getDeviceName() 获取设备名称
  * @method void setDeviceName(string $DeviceName) 设置设备名称
- * @method string getUserId() 获取云存用户ID
- * @method void setUserId(string $UserId) 设置云存用户ID
+ * @method integer getLimit() 获取返回条数
+ * @method void setLimit(integer $Limit) 设置返回条数
+ * @method string getContext() 获取检索上下文
+ * @method void setContext(string $Context) 设置检索上下文
  */
-class DescribeCloudStorageRequest extends AbstractModel
+class DescribeDeviceStatusLogRequest extends AbstractModel
 {
+    /**
+     * @var integer 开始时间（毫秒）
+     */
+    public $MinTime;
+
+    /**
+     * @var integer 结束时间（毫秒）
+     */
+    public $MaxTime;
+
     /**
      * @var string 产品ID
      */
@@ -40,14 +56,22 @@ class DescribeCloudStorageRequest extends AbstractModel
     public $DeviceName;
 
     /**
-     * @var string 云存用户ID
+     * @var integer 返回条数
      */
-    public $UserId;
+    public $Limit;
 
     /**
+     * @var string 检索上下文
+     */
+    public $Context;
+
+    /**
+     * @param integer $MinTime 开始时间（毫秒）
+     * @param integer $MaxTime 结束时间（毫秒）
      * @param string $ProductId 产品ID
      * @param string $DeviceName 设备名称
-     * @param string $UserId 云存用户ID
+     * @param integer $Limit 返回条数
+     * @param string $Context 检索上下文
      */
     function __construct()
     {
@@ -62,6 +86,14 @@ class DescribeCloudStorageRequest extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("MinTime",$param) and $param["MinTime"] !== null) {
+            $this->MinTime = $param["MinTime"];
+        }
+
+        if (array_key_exists("MaxTime",$param) and $param["MaxTime"] !== null) {
+            $this->MaxTime = $param["MaxTime"];
+        }
+
         if (array_key_exists("ProductId",$param) and $param["ProductId"] !== null) {
             $this->ProductId = $param["ProductId"];
         }
@@ -70,8 +102,12 @@ class DescribeCloudStorageRequest extends AbstractModel
             $this->DeviceName = $param["DeviceName"];
         }
 
-        if (array_key_exists("UserId",$param) and $param["UserId"] !== null) {
-            $this->UserId = $param["UserId"];
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("Context",$param) and $param["Context"] !== null) {
+            $this->Context = $param["Context"];
         }
     }
 }
