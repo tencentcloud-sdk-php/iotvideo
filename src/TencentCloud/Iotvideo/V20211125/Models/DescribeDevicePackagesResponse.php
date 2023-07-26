@@ -18,26 +18,29 @@ namespace TencentCloud\Iotvideo\V20211125\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeCloudStorageThumbnail返回参数结构体
+ * DescribeDevicePackages返回参数结构体
  *
- * @method string getThumbnailURL() 获取缩略图访问地址
- * @method void setThumbnailURL(string $ThumbnailURL) 设置缩略图访问地址
- * @method integer getExpireTime() 获取缩略图访问地址的过期时间
- * @method void setExpireTime(integer $ExpireTime) 设置缩略图访问地址的过期时间
+ * @method integer getTotalCount() 获取有效云存套餐数量
+ * @method void setTotalCount(integer $TotalCount) 设置有效云存套餐数量
+ * @method array getPackages() 获取有效云存套餐列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setPackages(array $Packages) 设置有效云存套餐列表
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeCloudStorageThumbnailResponse extends AbstractModel
+class DescribeDevicePackagesResponse extends AbstractModel
 {
     /**
-     * @var string 缩略图访问地址
+     * @var integer 有效云存套餐数量
      */
-    public $ThumbnailURL;
+    public $TotalCount;
 
     /**
-     * @var integer 缩略图访问地址的过期时间
+     * @var array 有效云存套餐列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $ExpireTime;
+    public $Packages;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +48,9 @@ class DescribeCloudStorageThumbnailResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $ThumbnailURL 缩略图访问地址
-     * @param integer $ExpireTime 缩略图访问地址的过期时间
+     * @param integer $TotalCount 有效云存套餐数量
+     * @param array $Packages 有效云存套餐列表
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,12 +66,17 @@ class DescribeCloudStorageThumbnailResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ThumbnailURL",$param) and $param["ThumbnailURL"] !== null) {
-            $this->ThumbnailURL = $param["ThumbnailURL"];
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
-        if (array_key_exists("ExpireTime",$param) and $param["ExpireTime"] !== null) {
-            $this->ExpireTime = $param["ExpireTime"];
+        if (array_key_exists("Packages",$param) and $param["Packages"] !== null) {
+            $this->Packages = [];
+            foreach ($param["Packages"] as $key => $value){
+                $obj = new PackageInfo();
+                $obj->deserialize($value);
+                array_push($this->Packages, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
